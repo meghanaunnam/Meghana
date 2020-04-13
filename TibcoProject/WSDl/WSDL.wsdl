@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://www.tibco.com/schemas/TibcoProject/Schema/Schema.xsd" xmlns:tns="http://xmlns.example.com/1585925577466" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://www.tibco.com/schemas/TibcoProject/Schema/Schema1.xsd" targetNamespace="http://xmlns.example.com/1585925577466">
+    <import namespace="http://www.tibco.com/schemas/TibcoProject/Schema/Schema.xsd" location="../Schema/RequestSchema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/TibcoProject/Schema/Schema1.xsd" location="../Schema/ResponseSchema.xsd"/>
+    <message name="InputMessage">
+        <part name="part1" element="ns:Input"/>
+    </message>
+    <message name="OutputMessage">
+        <part name="part1" element="ns2:Output"/>
+    </message>
+    <portType name="PortType">
+        <operation name="AddOperation">
+            <input message="tns:InputMessage"/>
+            <output message="tns:OutputMessage"/>
+        </operation>
+        <operation name="SubOperation">
+            <input message="tns:InputMessage"/>
+            <output message="tns:OutputMessage"/>
+        </operation>
+        <operation name="SoapOperation">
+            <input message="tns:InputMessage"/>
+            <output message="tns:OutputMessage"/>
+        </operation>
+    </portType>
+</definitions>

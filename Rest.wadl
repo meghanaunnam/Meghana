@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ns0:application xmlns:ns0="http://wadl.dev.java.net/2009/02" name="Application">
+    <ns0:resources name="Operation" base="http://localhost:9897/">
+        <ns0:resource id="AddResource" path="Add">
+            <ns0:doc/>
+            <ns0:method id="AddMethod" name="GET">
+                <ns0:doc/>
+                <ns0:request name="Request">
+                    <ns0:param name="Num1" style="query" required="true"/>
+                    <ns0:param name="Num2" style="query" required="true"/>
+                </ns0:request>
+                <ns0:response name="Response" status="200"/>
+            </ns0:method>
+        </ns0:resource>
+        <ns0:resource id="SubResource" path="Sub">
+            <ns0:doc/>
+            <ns0:method id="SubMethod" name="GET">
+                <ns0:doc/>
+                <ns0:request name="Request">
+                    <ns0:param name="Num1" style="query" required="true"/>
+                    <ns0:param name="Num2" style="query" required="true"/>
+                </ns0:request>
+                <ns0:response name="Response" status="200"/>
+            </ns0:method>
+        </ns0:resource>
+    </ns0:resources>
+</ns0:application>

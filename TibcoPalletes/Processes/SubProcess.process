@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/TibcoPalletes/Schema/Schema.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="http://www.tibco.com/schemas/TibcoPalletes/Schema/Schema.xsd2">
+    <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/TibcoPalletes/Schema/Schema.xsd2" schemaLocation="/Schema/OutputSchema.xsd"/>
+    <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/TibcoPalletes/Schema/Schema.xsd" schemaLocation="/Schema/InputSchema.xsd"/>
+    <pd:name>Processes/SubProcess.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType ref="pfx:Input"/>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings>
+        <pfx2:output>
+            <pfx2:Result>
+                <xsl:value-of select="$Map-Data/pfx:Input/pfx:Num1 - $Map-Data/pfx:Input/pfx:Num2"/>
+            </pfx2:Result>
+        </pfx2:output>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType ref="pfx2:output"/>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1585674358880</pd:targetNamespace>
+    <pd:activity name="Map Data">
+        <pd:type>com.tibco.plugin.mapper.MapperActivity</pd:type>
+        <pd:resourceType>ae.activities.MapperActivity</pd:resourceType>
+        <pd:x>301</pd:x>
+        <pd:y>70</pd:y>
+        <config>
+            <element ref="pfx:Input"/>
+        </config>
+        <pd:inputBindings>
+            <pfx:Input>
+                <pfx:Num1>
+                    <xsl:value-of select="$Start/pfx:Input/pfx:Num1"/>
+                </pfx:Num1>
+                <pfx:Num2>
+                    <xsl:value-of select="$Start/pfx:Input/pfx:Num2"/>
+                </pfx:Num2>
+            </pfx:Input>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Map Data</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Map Data</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceResource xmlns:wsdl="http://xmlns.example.com/1585925577466">
+    <ns0:import xmlns:ns0="http://schemas.xmlsoap.org/wsdl/" namespace="http://xmlns.example.com/1585925577466" location="/WSDl/WSDL.wsdl"/>
+    <config>
+        <wsdl namespace="http://xmlns.example.com/1586016432045" embedWsdlComponents="true" embedSchemaComponents="true" embedJndiProperties="false"/>
+        <class>com.tibco.bw.service.serviceAgent.ServiceServiceAgent</class>
+        <implType>bw</implType>
+        <groups>
+            <row isDefault="true" groupName="Default"/>
+        </groups>
+        <serviceChange>Sat Apr 04 22:25:22 IST 2020</serviceChange>
+        <name>Service</name>
+        <resourceType>service.definition</resourceType>
+        <interfaceImpl>
+            <tab>
+                <tabName>PortType</tabName>
+                <tabType>bw</tabType>
+                <config>
+                    <wsdlDetail location="/WSDl/WSDL.wsdl" portType="PortType" ns="http://xmlns.example.com/1585925577466"/>
+                    <detail>
+                        <tab>
+                            <tabName>service.definition.impl.tab.label</tabName>
+                            <tabType>impl</tabType>
+                            <config>
+                                <operations>
+                                    <row opName="AddOperation" opImpl="/Process/AddProcess.process"/>
+                                    <row opName="SubOperation" opImpl="/Process/SubProcess.process"/>
+                                    <row opName="SoapOperation" opImpl="/Process/AddProcess.process"/>
+                                </operations>
+                            </config>
+                        </tab>
+                        <tab>
+                            <tabName>service.definition.ep.tab.label</tabName>
+                            <tabType>ep</tabType>
+                            <config>
+                                <epBindings>
+                                    <row epName="PortTypeEndpoint1" epType="soap">
+                                        <config>
+                                            <epDetail>
+                                                <tab>
+                                                    <tabName>soap.service.transport.ui.transport.tab.label</tabName>
+                                                    <tabType>transport</tabType>
+                                                    <config>
+                                                        <sharedChannel>/Connection/HTTP Connection.sharedhttp</sharedChannel>
+                                                        <transport>
+                                                            <config>
+                                                                <useBasicAuthentication>false</useBasicAuthentication>
+                                                                <httpURI>/WSDl/Service.serviceagent/PortTypeEndpoint1</httpURI>
+                                                            </config>
+                                                        </transport>
+                                                    </config>
+                                                </tab>
+                                                <tab>
+                                                    <tabName>soap.service.transport.ui.details.tab.label</tabName>
+                                                    <tabType>details</tabType>
+                                                    <config>
+                                                        <operationStyle>document</operationStyle>
+                                                        <soapVersion>SOAP 1.1</soapVersion>
+                                                        <soap>
+                                                            <operation name="AddOperation">
+                                                                <general>
+                                                                    <config>
+                                                                        <soapAction>/WSDl/Service.serviceagent/PortTypeEndpoint1/AddOperation</soapAction>
+                                                                        <operationStyle/>
+                                                                        <soapUse>literal</soapUse>
+                                                                        <inputNamespace/>
+                                                                        <outputNamespace/>
+                                                                        <faultNamespace/>
+                                                                        <portAddressPrefix/>
+                                                                    </config>
+                                                                </general>
+                                                            </operation>
+                                                            <operation name="SubOperation">
+                                                                <general>
+                                                                    <config>
+                                                                        <soapAction>/WSDl/Service.serviceagent/PortTypeEndpoint1/SubOperation</soapAction>
+                                                                        <operationStyle/>
+                                                                        <soapUse>literal</soapUse>
+                                                                    </config>
+                                                                </general>
+                                                            </operation>
+                                                            <operation name="SoapOperation">
+                                                                <general>
+                                                                    <config>
+                                                                        <soapAction>/WSDl/Service.serviceagent/PortTypeEndpoint1/SoapOperation</soapAction>
+                                                                        <operationStyle/>
+                                                                        <soapUse>literal</soapUse>
+                                                                    </config>
+                                                                </general>
+                                                            </operation>
+                                                        </soap>
+                                                    </config>
+                                                </tab>
+                                            </epDetail>
+                                        </config>
+                                    </row>
+                                </epBindings>
+                            </config>
+                        </tab>
+                    </detail>
+                </config>
+            </tab>
+        </interfaceImpl>
+    </config>
+</serviceResource>

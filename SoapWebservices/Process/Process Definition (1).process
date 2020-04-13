@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/SoapWebservices/Schema/Schema1.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/schemas/SoapWebservices/Schema/Schema.xsd">
+    <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/SoapWebservices/Schema/Schema.xsd"/>
+    <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/SoapWebservices/Schema/Schema1.xsd"/>
+    <pd:name>Process/Process Definition (1).process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType ref="Input"/>
+    <pd:startX>146</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>446</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1585672154871</pd:targetNamespace>
+    <pd:activity name="Call Process">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>271</pd:x>
+        <pd:y>64</pd:y>
+        <config>
+            <processName>/Process/Process Definition.process</processName>
+            <spawn>true</spawn>
+        </config>
+        <pd:inputBindings>
+            <pfx:Request/>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Create File">
+        <pd:type>com.tibco.plugin.file.FileCreateActivity</pd:type>
+        <pd:resourceType>ae.activities.FileCreateActivity</pd:resourceType>
+        <pd:x>135</pd:x>
+        <pd:y>144</pd:y>
+        <config/>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Call Process</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>
